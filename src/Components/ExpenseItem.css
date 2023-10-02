@@ -1,6 +1,6 @@
 .expense-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     padding: 0.5rem;
@@ -8,8 +8,9 @@
     border-radius: 12px;
     background-color: #4b4b4b;
     color: white;
-}
 
+}
+/*Ostetav*/
 .expense-item__description {
     display: flex;
     flex-direction: column;
@@ -38,6 +39,7 @@
     border-radius: 12px;
 }
 
+/*Hind*/
 @media (min-width: 580px) {
     .expense-item__description {
         flex-direction: row;
@@ -55,3 +57,29 @@
         padding: 0.5rem 1.5rem;
     }
 }
+
+.expense-date__month {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.expense-date__year {
+    font-size: 0.75rem;
+}
+
+.expense-date__day {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.DateBox{ 
+    display: flex;
+    flex-direction: column;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 1px solid #ececec;
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+} 
