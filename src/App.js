@@ -1,32 +1,46 @@
+// Ülesanne 3 - Andmete suunamine (bottom-up) ja väärtuse hetkeseisu lugemine ning määramine (COMPLETED)
 
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
-const App = () => {
-  const expenses = [
+
+  // expenses => (DUMMY_EXPENSES)
+const DUMMY_EXPENSES = [
     {  
       date: new Date(2023,0,10),
       title: 'New book',
-      price: 30.88
+      //price => (amount)
+      amount: 30.88
     },
     {
       date: new Date(2023,0,10),
       title: 'New Jeans',
-      price: 30.88
+      //price => (amount)
+      amount: 30.88
     }
+
+    {
+      date: new Date(2023,0,10),
+      title: 'New bag',
+      amount: 199.99
+    } 
  
 ] 
 
+const App = () => {
   const AddExpenseHandler = (expense) => {
     console.log('in app.js')
     console.log(expense)
-  } 
+  }
 
+  // expensesData => (expenses)
+  //(sulgudes) expenses => (DUMMY_EXPENSES)
   return (
     <div className='App'>
       <NewExpense onAddExpense={AddExpenseHandler}></NewExpense>
-      <Expenses expensesData={expenses}></Expenses> 
+      <Expenses expenses={DUMMY_EXPENSES}></Expenses> 
+  
     </div>
   );
 
