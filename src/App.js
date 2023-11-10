@@ -8,7 +8,7 @@ import NewExpense from './components/NewExpense/NewExpense';
   // expenses => (DUMMY_EXPENSES)
 const DUMMY_EXPENSES = [
     {  
-      id: 'e1'
+      id: 'e1',
       date: new Date(2023,0,10),
       title: 'New book',
       //price => (amount)
@@ -16,7 +16,7 @@ const DUMMY_EXPENSES = [
     },
 
     {
-      id: 'e2'
+      id: 'e2',
       date: new Date(2023,0,10),
       title: 'New Jeans',
       //price => (amount)

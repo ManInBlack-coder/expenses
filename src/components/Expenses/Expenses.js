@@ -13,11 +13,13 @@ const Expenses = (props) => {
         console.log('Filter change handled by Expenses.js')
         console.log(year + ' in Expenses.js')
         setFilteredYear(year)
-    } 
+    }
 
-    props.expenses.map(expense) => {
-        console.log(expense)
-    } 
+    props.expenses.map((expense) => {
+        console.log(expense);
+    }) 
+
+   
     
     
     return (
