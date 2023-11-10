@@ -1,8 +1,7 @@
 
 import './App.css';
-//import ExpenseItem from './Components/ExpenseItem'
-import Expenses from './Components/Expenses';
-import NewExpense from './NewExpense/NewExpense';
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
   const expenses = [

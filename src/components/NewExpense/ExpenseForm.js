@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 import './ExpenseForm.css'
-import ExpenseDate from "../Components/ExpenseDate";
+import ExpenseDate from "../Expenses/ExpenseDate";
 import Card from "../UI/Card";
 
 
