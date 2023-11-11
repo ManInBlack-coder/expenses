@@ -11,7 +11,6 @@ const DUMMY_EXPENSES = [
       id: 'e1',
       date: new Date(2023,0,10),
       title: 'New book',
-      //price => (amount)
       amount: 30.88
     },
 
@@ -19,7 +18,6 @@ const DUMMY_EXPENSES = [
       id: 'e2',
       date: new Date(2023,0,10),
       title: 'New Jeans',
-      //price => (amount)
       amount: 30.88
     }
 
@@ -30,7 +28,7 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses,setExpenses] = useState (DUMMY_EXPENSES) 
   
-  const AddExpenseHandler = (expense) => {
+  const onAddExpenseHandler = (expense) => {
     console.log('in app.js')
     setExpenses((previousExpenses) => {
       return [expense, ...previousExpenses]
@@ -45,7 +43,7 @@ const App = () => {
   //(sulgudes) expenses => (DUMMY_EXPENSES)
   return (
     <div className='App'>
-      <NewExpense onAddExpense={AddExpenseHandler}></NewExpense>
+      <NewExpense onAddExpense={onAddExpenseHandler}></NewExpense>
       <Expenses expenses={expenses}></Expenses> 
   
     </div>

@@ -15,29 +15,31 @@ const Expenses = (props) => {
         setFilteredYear(year)
     }
 
-    props.expenses.map((expense) => {
-        console.log(expense);
-    }) 
-
-   
     
+
+  //votsin valja need returnist 
+//<ExpenseItem expenseData={props.expensesData[0]}></ExpenseItem>
+//<ExpenseItem expenseData={props.expensesData[1]}></ExpenseItem>
     
     return (
         
         <Card className="expenses">
             <ExpensesFilter selected={filteredYear}
-            onChangeFilter={filterChangedHandler}></ExpensesFilter>/
-            <ExpenseItem expenseData={props.expensesData[0]}></ExpenseItem>
-            <ExpenseItem expenseData={props.expensesData[1]}></ExpenseItem>
+            onChangeFilter={filterChangedHandler}></ExpensesFilter>
+            
             {
                 props.expenses.map((expense) => {
                     return <ExpenseItem
-                        expenseData={expense}></ExpenseItem>  
-                }) 
+            
+                        id={expense.id}
+                        title={expense.expense}
+                        amount={expense.amount}
+                        date={expense.date}
+                    ></ExpenseItem>  
+                    }) 
             }             
-
+ 
         </Card>
-
 
     
     )

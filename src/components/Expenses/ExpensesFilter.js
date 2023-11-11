@@ -3,17 +3,18 @@ import React from 'react';
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
-    const SaveExpenseFilterHandler =  (enteredExpenseFilter) => {
-        props.addExpenseFilter(enteredExpenseFilter)
+
+    const saveExpenseFilterHandler = (enteredExpenseFilter) => {
+        props.onAddExpenseFilter(enteredExpenseFilter)
     } 
 
     const selectHandler = (event) => {
         event.preventDefault()
         const expenseFilter = event.target.value
-        SaveExpenseFilterHandler(expenseFilter)
+        saveExpenseFilterHandler(expenseFilter)
     } 
 
-// siin jäi pooleli
+
     return (
         <div className='expenses-filter'>
             <div className='expenses-filter__control'>
