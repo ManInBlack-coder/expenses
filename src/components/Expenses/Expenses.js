@@ -42,11 +42,14 @@ const Expenses = (props) => {
                         return <ExpenseItem
             
                         id={expense.id}
-                        title={expense.expense}
+                        title={expense.title}
                         amount={expense.amount}
                         date={expense.date}
                     ></ExpenseItem>  
-                    } else {
+                    } 
+                    
+                
+                    else {
                         return null}
                     
                     }) 
