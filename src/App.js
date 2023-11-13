@@ -16,8 +16,8 @@ const DUMMY_EXPENSES = [
 
     {
       id: 'e2',
-      date: new Date(2023,0,10),
       title: 'New Jeans',
+      date: new Date(2023,0,10),
       amount: 30.88
     }
 
