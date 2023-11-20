@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 
 import './ExpenseForm.css'
@@ -12,6 +12,9 @@ const ExpenseForm = (props) => {
     const [enteredAmount, setEnteredAmount] = useState('')
     const [enteredDate,setEnteredDate] = useState('')  
     
+    const titleInputRef = useRef()
+    const amountInputRef = useRef()
+    const dateInputRef = useRef()
 
     
     const titleChangeHandler = (event) => {
@@ -117,14 +120,38 @@ const ExpenseForm = (props) => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
+
+                    {/*Tra ma ei tea mida teen enam*/}
+                    <input
+                    type="text"
+                    id='text'
+                    ref={titleInputRef}
+                    />
+
+
+
                     <input type="text" onChange={titleChangeHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
+                    <input
+                        type="number"
+                        min='0.01'
+                        step='0.01'
+                        id="amount"
+                        ref={amountInputRef}
+                    ></input>
                     <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
+                    <input
+                        type="date"
+                        min='2023-01-18'
+                        max='2025-12-13'
+                        id="date"
+                        ref={dateInputRef}
+                    ></input>
                     <input type="date" min="2023-01-18" max="2025-12-31" 
                     onChange={dateChangeHandler}/>
                 </div>
