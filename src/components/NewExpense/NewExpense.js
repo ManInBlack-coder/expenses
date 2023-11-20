@@ -15,6 +15,7 @@ const NewExpense = (props) => {
             
         } 
         props.onAddExpense(expenseData)
+        endFormEdit()
         
         const startFormEdit = () => {
             startFormEdit(true)
@@ -32,7 +33,7 @@ const NewExpense = (props) => {
     return (
         <div className="new-expense">
             {!formEdit && <button onClick={startFormEdit}>add new expense</button>}
-            {formEdit && <ExpenseForm onSaveExpenseData={SaveExpenseDataHandler}></ExpenseForm>}
+            {formEdit && <ExpenseForm onSaveExpenseData={SaveExpenseDataHandler} onReset={endFormEdit}></ExpenseForm>}
         </div>
         // SaveExpenseDataHandler oli ennem OnSaveExpenseDataHandler
     )

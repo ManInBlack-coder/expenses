@@ -109,9 +109,10 @@ const ExpenseForm = (props) => {
   
     
 
+    
+
     return (
       
-        
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
@@ -132,9 +133,10 @@ const ExpenseForm = (props) => {
                 <button type="submit">Add Expense</button>  
                 {/*Cancel nupp. 
                 satin type veel paika*/}
-                <button type="cancel">Cancel</button>
+                <button type="submit">Cancel</button>
             </div> 
         </form>
+
     )
 
     
