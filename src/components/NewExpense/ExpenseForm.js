@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 
 import './ExpenseForm.css'
-import ExpenseDate from "../Expenses/ExpenseDate";
-import Card from "../UI/Card";
+//import ExpenseDate from "../Expenses/ExpenseDate";
+//import Card from "../UI/Card";
 
 
 const ExpenseForm = (props) => {
@@ -44,8 +44,70 @@ const ExpenseForm = (props) => {
         setEnteredDate('')
     }
 
- 
+// valjastab praegu lihtsalt cancel nupu 
+        // const cancel = 'neutral'
+        // return (
+           
+        //     <form id="box" onSubmit={submitHandler}>
+        //         <div className="new-expense__actions"> 
+        //             <button id="add" type="submit">Add new Expense</button>  
+        //         </div> 
+        //     </form>
+        // )
+    
+        
+        
+            
+        
 
+        // function KuvaVorm(elem)  {
+        //     var box = document.getElementById('box');
+        //     if (elem.id === 'add') {
+        //         console.log('vajutasin add')
+                
+        //         return (
+                
+                
+        //             <form id="box" onSubmit={submitHandler}>
+        //                 <div className="new-expense__controls">
+        //                     <div className="new-expense__control">
+        //                         <label>Title</label>
+        //                         <input type="text" onChange={titleChangeHandler} />
+        //                     </div>
+        //                     <div className="new-expense__control">
+        //                         <label>Amount</label>
+        //                         <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+        //                     </div>
+        //                     <div className="new-expense__control">
+        //                         <label>Date</label>
+        //                         <input type="date" min="2023-01-18" max="2025-12-31" 
+        //                         onChange={dateChangeHandler}/>
+        //                     </div>
+        //                 </div>
+        //                 <div className="new-expense__actions"> 
+        //                     <button type="submit">Add Expense</button>  
+        //                     {/*Cancel nupp. 
+        //                     satin type veel paika*/}
+        //                     <button id="cancel" type="cancel">Cancel</button>
+        //                 </div> 
+        //             </form>
+        //         )
+        //     } 
+        //     else if (elem.id === 'cancel') {
+        //         return (
+        //             <form id="box" onSubmit={submitHandler}>
+        //                 <div className="new-expense__actions"> 
+        //                     <button id="add" type="submit">Add Expense</button>  
+        //                 </div> 
+        //             </form>
+        //         )
+        //     }
+        // }
+    
+
+    
+  
+    
 
     return (
       
@@ -68,9 +130,27 @@ const ExpenseForm = (props) => {
             </div>
             <div className="new-expense__actions"> 
                 <button type="submit">Add Expense</button>  
+                {/*Cancel nupp. 
+                satin type veel paika*/}
+                <button type="cancel">Cancel</button>
             </div> 
         </form>
     )
+
+    
 }  
+
+// const addNewEx = (props) => {
+
+    
+
+//     return (
+//         <form onSubmit={submitHandler}>
+//             <button>add new expense</button>
+//         </form>
+//     )
+// }
+
+
 
 export default ExpenseForm
