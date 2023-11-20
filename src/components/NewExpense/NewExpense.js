@@ -5,7 +5,7 @@ import ExpenseForm from "./ExpenseForm";
 import './NewExpense.css'
 
 const NewExpense = (props) => {
-    const [formEdit, startFormEdit] = useState(false)
+    const [formEdit, setFormEdit] = useState(false)
     const SaveExpenseDataHandler = (enteredExpenseData) => {
         
         const expenseData = {
@@ -17,19 +17,17 @@ const NewExpense = (props) => {
         props.onAddExpense(expenseData)
         endFormEdit()
         
-        const startFormEdit = () => {
-            startFormEdit(true)
-        }
 
-        const endFormEdit = () => {
-            startFormEdit(false)
-        }
-
-       
-        
         
     } 
-   
+
+    const startFormEdit = () => {
+        setFormEdit(true)
+    }
+
+    const endFormEdit = () => {
+        setFormEdit(false)
+    }
     return (
         <div className="new-expense">
             {!formEdit && <button onClick={startFormEdit}>add new expense</button>}
