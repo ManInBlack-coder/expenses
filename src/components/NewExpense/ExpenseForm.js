@@ -1,22 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { Fragment, useState, useRef } from "react";
 
 
 import './ExpenseForm.css'
+import Error from "../UI/Error";
 //import ExpenseDate from "../Expenses/ExpenseDate";
 //import Card from "../UI/Card";
 
 
 const ExpenseForm = (props) => {
 
-    const [enteredTitle,setEnteredTitle] = useState('')
-    const [enteredAmount, setEnteredAmount] = useState('')
-    const [enteredDate,setEnteredDate] = useState('')  
+
+    const [error, setError] = useState(null)
+  
+    // const [enteredTitle,setEnteredTitle] = useState('')
+    // const [enteredAmount, setEnteredAmount] = useState('')
+    // const [enteredDate,setEnteredDate] = useState('')  
     
+
     const titleInputRef = useRef()
     const amountInputRef = useRef()
     const dateInputRef = useRef()
 
-    
+  /*  
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value)
     }  
@@ -28,10 +33,60 @@ const ExpenseForm = (props) => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value)
     } 
-
+ */
 
     const submitHandler = (event) => {
         event.preventDefault()
+
+        const enteredTitle = titleInputRef.current.value
+        const enteredAmount = amountInputRef.current.value
+        const enteredDate = dateInputRef.current.value
+
+
+        console.log(enteredTitle)
+        console.log(enteredAmount)
+        console.log(enteredDate)
+
+
+        //Hoia silm peal
+        const errorHandler = () => {
+            setError(null)
+        }
+        console.log(error)
+
+        if(enteredTitle.trim().length  === 0 || enteredAmount.trim().length === 0 || enteredDate.trim().length === 0){
+            setError({
+                title: 'Invalid input',
+                message: 'Please enter a valid title or amount or date (non-empty values)'
+            })
+            return (
+                
+                <Fragment>
+                    {error && (
+                        <Error
+                        title={error.title}
+                        message={error.message}
+                        onConfirm={errorHandler}
+                        />)
+                        
+                    }
+                    <div>
+                        <form onSubmit={submitHandler}>
+                            <div className="new-expense__controls">
+                                <div className="new-expense__control">
+                                    <label>Title</label>
+                                    <input
+                                    type="text"
+                                    id="title"
+                                    ref={titleInputRef}
+                                />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </Fragment>
+            )
+        }
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
@@ -42,77 +97,21 @@ const ExpenseForm = (props) => {
         //console.log(expenseData)
         
         props.onSaveExpenseData(expenseData)
-        setEnteredTitle('')
-        setEnteredAmount('')
-        setEnteredDate('')
+        
+        titleInputRef.current.value = ''
+        amountInputRef.current.value = ''
+        dateInputRef.current.value = ''
+
+        
+        // setEnteredTitle('')
+        // setEnteredAmount('')
+        // setEnteredDate('')
     }
 
-// valjastab praegu lihtsalt cancel nupu 
-        // const cancel = 'neutral'
-        // return (
-           
-        //     <form id="box" onSubmit={submitHandler}>
-        //         <div className="new-expense__actions"> 
-        //             <button id="add" type="submit">Add new Expense</button>  
-        //         </div> 
-        //     </form>
-        // )
-    
-        
-        
-            
-        
 
-        // function KuvaVorm(elem)  {
-        //     var box = document.getElementById('box');
-        //     if (elem.id === 'add') {
-        //         console.log('vajutasin add')
-                
-        //         return (
-                
-                
-        //             <form id="box" onSubmit={submitHandler}>
-        //                 <div className="new-expense__controls">
-        //                     <div className="new-expense__control">
-        //                         <label>Title</label>
-        //                         <input type="text" onChange={titleChangeHandler} />
-        //                     </div>
-        //                     <div className="new-expense__control">
-        //                         <label>Amount</label>
-        //                         <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
-        //                     </div>
-        //                     <div className="new-expense__control">
-        //                         <label>Date</label>
-        //                         <input type="date" min="2023-01-18" max="2025-12-31" 
-        //                         onChange={dateChangeHandler}/>
-        //                     </div>
-        //                 </div>
-        //                 <div className="new-expense__actions"> 
-        //                     <button type="submit">Add Expense</button>  
-        //                     {/*Cancel nupp. 
-        //                     satin type veel paika*/}
-        //                     <button id="cancel" type="cancel">Cancel</button>
-        //                 </div> 
-        //             </form>
-        //         )
-        //     } 
-        //     else if (elem.id === 'cancel') {
-        //         return (
-        //             <form id="box" onSubmit={submitHandler}>
-        //                 <div className="new-expense__actions"> 
-        //                     <button id="add" type="submit">Add Expense</button>  
-        //                 </div> 
-        //             </form>
-        //         )
-        //     }
-        // }
-    
 
     
-  
-    
 
-    
 
     return (
       
@@ -130,7 +129,9 @@ const ExpenseForm = (props) => {
 
 
 
-                    <input type="text" onChange={titleChangeHandler} />
+                    {/* <input type="text" onChange={titleInputRef} /> */}
+
+
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
@@ -141,7 +142,7 @@ const ExpenseForm = (props) => {
                         id="amount"
                         ref={amountInputRef}
                     ></input>
-                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+                    {/* <input type="number" min="0.01" step="0.01" onChange={amountInputRef}/> */}
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
@@ -152,8 +153,8 @@ const ExpenseForm = (props) => {
                         id="date"
                         ref={dateInputRef}
                     ></input>
-                    <input type="date" min="2023-01-18" max="2025-12-31" 
-                    onChange={dateChangeHandler}/>
+                    {/* <input type="date" min="2023-01-18" max="2025-12-31" 
+                    onChange={dateInputRef}/> */}
                 </div>
             </div>
             <div className="new-expense__actions"> 
