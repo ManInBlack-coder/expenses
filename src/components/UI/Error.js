@@ -7,6 +7,8 @@ import Button from "./Button";
 import './Error.css'
 
 const BackDrop = () => {
+    //kontrollin 2 
+    console.log('kontrollin 2')
     return (
         <div className="backdrop"/>
     )
@@ -30,6 +32,8 @@ const ModalOverlay = (props) => {
 }
 
 const Error = (props) => {
+    //otsin lehe tagastamist 
+    console.log('kontrollin1')
     return (
         <Fragment>
             {ReactDOM.createPortal(

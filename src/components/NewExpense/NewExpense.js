@@ -26,8 +26,10 @@ const NewExpense = (props) => {
     }
 
     const endFormEdit = () => {
+        console.log('stop form editing')
         setFormEdit(false)
     }
+
     return (
         <div className="new-expense">
             {!formEdit && <button onClick={startFormEdit}>add new expense</button>}
