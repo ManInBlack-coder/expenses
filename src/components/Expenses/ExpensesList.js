@@ -5,6 +5,12 @@ import "./ExpensesList.css";
 
 
 const ExpensesList = (props) => {
+    
+    if(props.isLoading) {
+        return <p className="expenses-list_fallback"><b>
+            Fetching expenses data...</b></p>
+    }
+    
     let expensesContent = <p>No expenses found.</p>
 
     if(props.filteredExpenses.length > 0) {

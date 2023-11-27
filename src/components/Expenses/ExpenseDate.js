@@ -1,12 +1,18 @@
+
+
+
+
 function ExpenseDate(props){
     
     
     
-    const day = props.date.toLocaleString('en-US',{day:
+    const day = new Date(props.date).toLocaleString('en-US',{day:
     '2-digit'}  )
-    const month = props.date.toLocaleString('en-US',{month:
+    
+    const month = new Date(props.date).toLocaleString('en-US',{month:
     'long'} )
-    const year = props.date.getFullYear()
+    
+    const year = new Date(props.date).getFullYear()
 
     return (
         <div className="DateBox">
