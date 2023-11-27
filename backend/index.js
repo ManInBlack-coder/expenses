@@ -3,6 +3,8 @@ import express from "express";
 
 const app = express();
 
+fetch('')
+.then(function(res))
 
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow', '*'); // koik domeenid
